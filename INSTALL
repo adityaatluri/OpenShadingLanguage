@@ -69,4 +69,5 @@ Here are the steps to check out, build, and test the OSL distribution:
    is really broken.  We're working on a fix for this.)
 
 
-
+For Ubuntu:
+sudo apt-get install llvm clang libjpeg8-dev libopenexr-dev libilmbase-dev libboost-dev libopenimageio-dev libtiff-dev
