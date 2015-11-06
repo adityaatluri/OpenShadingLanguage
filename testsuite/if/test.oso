@@ -1,0 +1,173 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.0dev
+shader test
+global	float	u	%read{13,16} %write{2147483647,-1}
+global	float	v	%read{13,16} %write{2147483647,-1}
+local	int	nonzero	%read{2,8} %write{0,0}
+local	int	zero	%read{4,11} %write{1,1}
+local	float	fnonzero	%read{19,21} %write{17,17}
+local	float	fzero	%read{22,24} %write{18,18}
+local	color	cnonzero	%read{27,29} %write{25,25}
+local	color	czero	%read{30,32} %write{26,26}
+local	closure color	ccnonzero	%read{35,46} %write{33,33}
+local	closure color	cczero	%read{38,43} %write{34,34}
+const	int	$const1	7		%read{0,0} %write{2147483647,-1}
+const	int	$const2	0		%read{1,44} %write{2147483647,-1}
+const	string	$const3	"1-clause uniform if %d:  Should print this\n"		%read{3,3} %write{2147483647,-1}
+const	string	$const4	"1-clause uniform if %d:  Should NOT NOT NOT print this!\n"		%read{5,5} %write{2147483647,-1}
+const	string	$const5	"2-clause uniform if %d:  true - Should print this\n"		%read{7,7} %write{2147483647,-1}
+const	string	$const6	"2-clause uniform if %d:  false - Should NOT NOT NOT print this!\n"		%read{8,8} %write{2147483647,-1}
+const	string	$const7	"2-clause uniform if %d:  true - Should NOT NOT NOT print this!\n"		%read{10,10} %write{2147483647,-1}
+const	string	$const8	"2-clause uniform if %d:  false - Should print this\n"		%read{11,11} %write{2147483647,-1}
+const	string	$const9	"Test varying if:\n"		%read{12,12} %write{2147483647,-1}
+temp	int	$tmp1	%read{14,14} %write{13,13}
+const	string	$const10	"u less than v: %g < %g\n"		%read{15,15} %write{2147483647,-1}
+const	string	$const11	"u greater or equal than v: %g >= %g\n"		%read{16,16} %write{2147483647,-1}
+const	float	$const12	3.1415927		%read{17,25} %write{2147483647,-1}
+const	float	$const13	0		%read{18,30} %write{2147483647,-1}
+temp	int	$tmp2	%read{20,20} %write{19,19}
+const	string	$const14	"if (float=%g):  Should print this\n"		%read{21,21} %write{2147483647,-1}
+temp	int	$tmp3	%read{23,23} %write{22,22}
+const	string	$const15	"if (float=%g):  Should NOT NOT NOT print this!\n"		%read{24,24} %write{2147483647,-1}
+temp	int	$tmp4	%read{28,28} %write{27,27}
+const	string	$const16	"if (color=%g):  Should print this\n"		%read{29,29} %write{2147483647,-1}
+temp	int	$tmp5	%read{31,31} %write{30,30}
+const	string	$const17	"if (color=%g):  Should NOT NOT NOT print this!\n"		%read{32,32} %write{2147483647,-1}
+const	string	$const18	"emission"		%read{33,33} %write{2147483647,-1}
+temp	int	$tmp6	%read{36,36} %write{35,35}
+const	string	$const19	"if (closure color=%s):  Should print this\n"		%read{37,37} %write{2147483647,-1}
+temp	int	$tmp7	%read{39,39} %write{38,38}
+const	string	$const20	"if (closure color=%s):  Should NOT NOT NOT print this!\n"		%read{40,40} %write{2147483647,-1}
+temp	int	$tmp8	%read{42,42} %write{41,41}
+const	string	$const21	"if (! closure color=%s):  Should print this\n"		%read{43,43} %write{2147483647,-1}
+temp	int	$tmp9	%read{45,45} %write{44,44}
+const	string	$const22	"if (! closure color=%s):  Should NOT NOT NOT print this!\n"		%read{46,46} %write{2147483647,-1}
+const	string	$const23	"\n"		%read{47,47} %write{2147483647,-1}
+code ___main___
+# test.osl:5
+#     int nonzero = 7;
+	assign		nonzero $const1 	%filename{"test.osl"} %line{5} %argrw{"wr"}
+# test.osl:6
+#     int zero = 0;
+	assign		zero $const2 	%line{6} %argrw{"wr"}
+# test.osl:7
+#     if (nonzero)
+	if		nonzero 4 4 	%line{7} %argrw{"r"}
+# test.osl:8
+#         printf ("1-clause uniform if %d:  Should print this\n", nonzero);
+	printf		$const3 nonzero 	%line{8} %argrw{"rr"}
+# test.osl:9
+#     if (zero)
+	if		zero 6 6 	%line{9} %argrw{"r"}
+# test.osl:10
+#         printf ("1-clause uniform if %d:  Should NOT NOT NOT print this!\n", zero);
+	printf		$const4 zero 	%line{10} %argrw{"rr"}
+# test.osl:13
+#     if (nonzero)
+	if		nonzero 8 9 	%line{13} %argrw{"r"}
+# test.osl:14
+#         printf ("2-clause uniform if %d:  true - Should print this\n", nonzero);
+	printf		$const5 nonzero 	%line{14} %argrw{"rr"}
+# test.osl:16
+#         printf ("2-clause uniform if %d:  false - Should NOT NOT NOT print this!\n", nonzero);
+	printf		$const6 nonzero 	%line{16} %argrw{"rr"}
+# test.osl:17
+#     if (zero)
+	if		zero 11 12 	%line{17} %argrw{"r"}
+# test.osl:18
+#         printf ("2-clause uniform if %d:  true - Should NOT NOT NOT print this!\n", zero);
+	printf		$const7 zero 	%line{18} %argrw{"rr"}
+# test.osl:20
+#         printf ("2-clause uniform if %d:  false - Should print this\n", zero);
+	printf		$const8 zero 	%line{20} %argrw{"rr"}
+# test.osl:22
+#     printf ("Test varying if:\n");
+	printf		$const9 	%line{22} %argrw{"r"}
+# test.osl:23
+#     if (u < v) {
+	lt		$tmp1 u v 	%line{23} %argrw{"wrr"}
+	if		$tmp1 16 17 	%argrw{"r"}
+# test.osl:24
+#         printf ("u less than v: %g < %g\n", u, v);
+	printf		$const10 u v 	%line{24} %argrw{"rrr"}
+# test.osl:26
+#         printf ("u greater or equal than v: %g >= %g\n", u, v);
+	printf		$const11 u v 	%line{26} %argrw{"rrr"}
+# test.osl:29
+#     float fnonzero = M_PI;
+	assign		fnonzero $const12 	%line{29} %argrw{"wr"}
+# test.osl:30
+#     float fzero = 0.0;
+	assign		fzero $const13 	%line{30} %argrw{"wr"}
+# test.osl:31
+#     if (fnonzero)
+	neq		$tmp2 fnonzero $const13 	%line{31} %argrw{"wrr"}
+	if		$tmp2 22 22 	%argrw{"r"}
+# test.osl:32
+#         printf ("if (float=%g):  Should print this\n", fnonzero);
+	printf		$const14 fnonzero 	%line{32} %argrw{"rr"}
+# test.osl:33
+#     if (fzero)
+	neq		$tmp3 fzero $const13 	%line{33} %argrw{"wrr"}
+	if		$tmp3 25 25 	%argrw{"r"}
+# test.osl:34
+#         printf ("if (float=%g):  Should NOT NOT NOT print this!\n", fzero);
+	printf		$const15 fzero 	%line{34} %argrw{"rr"}
+# test.osl:36
+#     color cnonzero = M_PI;
+	assign		cnonzero $const12 	%line{36} %argrw{"wr"}
+# test.osl:37
+#     color czero = 0.0;
+	assign		czero $const13 	%line{37} %argrw{"wr"}
+# test.osl:38
+#     if (cnonzero)
+	neq		$tmp4 cnonzero $const13 	%line{38} %argrw{"wrr"}
+	if		$tmp4 30 30 	%argrw{"r"}
+# test.osl:39
+#         printf ("if (color=%g):  Should print this\n", cnonzero);
+	printf		$const16 cnonzero 	%line{39} %argrw{"rr"}
+# test.osl:40
+#     if (czero)
+	neq		$tmp5 czero $const13 	%line{40} %argrw{"wrr"}
+	if		$tmp5 33 33 	%argrw{"r"}
+# test.osl:41
+#         printf ("if (color=%g):  Should NOT NOT NOT print this!\n", czero);
+	printf		$const17 czero 	%line{41} %argrw{"rr"}
+# test.osl:44
+#     closure color ccnonzero = emission();
+	closure		ccnonzero $const18 	%line{44} %argrw{"wr"}
+# test.osl:45
+#     closure color cczero = 0;
+	assign		cczero $const2 	%line{45} %argrw{"wr"}
+# test.osl:46
+#     if (ccnonzero)
+	neq		$tmp6 ccnonzero $const2 	%line{46} %argrw{"wrr"}
+	if		$tmp6 38 38 	%argrw{"r"}
+# test.osl:47
+#         printf ("if (closure color=%s):  Should print this\n", ccnonzero);
+	printf		$const19 ccnonzero 	%line{47} %argrw{"rr"}
+# test.osl:48
+#     if (cczero)
+	neq		$tmp7 cczero $const2 	%line{48} %argrw{"wrr"}
+	if		$tmp7 41 41 	%argrw{"r"}
+# test.osl:49
+#         printf ("if (closure color=%s):  Should NOT NOT NOT print this!\n", cczero);
+	printf		$const20 cczero 	%line{49} %argrw{"rr"}
+# test.osl:50
+#     if (! cczero)
+	eq		$tmp8 cczero $const2 	%line{50} %argrw{"wrr"}
+	if		$tmp8 44 44 	%argrw{"r"}
+# test.osl:51
+#         printf ("if (! closure color=%s):  Should print this\n", cczero);
+	printf		$const21 cczero 	%line{51} %argrw{"rr"}
+# test.osl:52
+#     if (!ccnonzero)
+	eq		$tmp9 ccnonzero $const2 	%line{52} %argrw{"wrr"}
+	if		$tmp9 47 47 	%argrw{"r"}
+# test.osl:53
+#         printf ("if (! closure color=%s):  Should NOT NOT NOT print this!\n", ccnonzero);
+	printf		$const22 ccnonzero 	%line{53} %argrw{"rr"}
+# test.osl:55
+#     printf ("\n");
+	printf		$const23 	%line{55} %argrw{"r"}
+	end

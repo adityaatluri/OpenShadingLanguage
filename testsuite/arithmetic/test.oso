@@ -1,0 +1,375 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.0dev
+shader test
+global	float	u	%read{16,124} %write{2147483647,-1}
+global	float	v	%read{16,124} %write{2147483647,-1}
+local	float	___296_a	%read{4,29} %write{1,17}
+local	float	___296_b	%read{4,25} %write{2,2}
+local	float	___296_z	%read{12,27} %write{3,3}
+local	float	___297_a	%read{36,58} %write{32,32}
+local	int	___297_b	%read{35,58} %write{33,33}
+local	float	___297_z	%read{2147483647,-1} %write{34,34}
+local	color	___298_a	%read{66,107} %write{61,97}
+local	color	___298_b	%read{66,105} %write{62,62}
+local	float	___298_f	%read{80,95} %write{63,63}
+local	color	___298_z	%read{74,75} %write{64,64}
+local	float	___298_zf	%read{76,77} %write{65,65}
+local	int	___299_a	%read{112,123} %write{110,110}
+local	int	___299_b	%read{112,121} %write{111,111}
+const	string	$const1	"float:\n"		%read{0,0} %write{2147483647,-1}
+const	float	$const2	0.69999999		%read{1,61} %write{2147483647,-1}
+const	float	$const3	0.2		%read{2,62} %write{2147483647,-1}
+const	int	$const4	0		%read{3,65} %write{2147483647,-1}
+const	string	$const5	"  %g + %g = %g\n"		%read{5,99} %write{2147483647,-1}
+temp	float	$tmp1	%read{5,5} %write{4,4}
+const	string	$const6	"  %g - %g = %g\n"		%read{7,101} %write{2147483647,-1}
+temp	float	$tmp2	%read{7,7} %write{6,6}
+const	string	$const7	"  %g * %g = %g\n"		%read{9,103} %write{2147483647,-1}
+temp	float	$tmp3	%read{9,9} %write{8,8}
+const	string	$const8	"  %g / %g = %g\n"		%read{11,105} %write{2147483647,-1}
+temp	float	$tmp4	%read{11,11} %write{10,10}
+temp	float	$tmp5	%read{13,13} %write{12,12}
+const	string	$const9	"  - %g = %g\n"		%read{15,107} %write{2147483647,-1}
+temp	float	$tmp6	%read{15,15} %write{14,14}
+const	string	$const10	" varying: u=%g, v=%g\n"		%read{16,124} %write{2147483647,-1}
+temp	float	$tmp7	%read{19,19} %write{18,18}
+temp	float	$tmp8	%read{21,21} %write{20,20}
+temp	float	$tmp9	%read{23,23} %write{22,22}
+temp	float	$tmp10	%read{25,25} %write{24,24}
+temp	float	$tmp11	%read{27,27} %write{26,26}
+temp	float	$tmp12	%read{29,29} %write{28,28}
+const	string	$const11	"\n"		%read{30,125} %write{2147483647,-1}
+const	string	$const12	"float/int:\n"		%read{31,31} %write{2147483647,-1}
+const	int	$const13	2		%read{33,111} %write{2147483647,-1}
+const	string	$const14	"  %g + %d = %g\n"		%read{37,37} %write{2147483647,-1}
+temp	float	$tmp13	%read{37,37} %write{36,36}
+temp	float	$tmp14	%read{36,36} %write{35,35}
+const	string	$const15	"  %d + %g = %g\n"		%read{40,40} %write{2147483647,-1}
+temp	float	$tmp15	%read{40,40} %write{39,39}
+temp	float	$tmp16	%read{39,39} %write{38,38}
+const	string	$const16	"  %g - %d = %g\n"		%read{43,43} %write{2147483647,-1}
+temp	float	$tmp17	%read{43,43} %write{42,42}
+temp	float	$tmp18	%read{42,42} %write{41,41}
+const	string	$const17	"  %d - %g = %g\n"		%read{46,46} %write{2147483647,-1}
+temp	float	$tmp19	%read{46,46} %write{45,45}
+temp	float	$tmp20	%read{45,45} %write{44,44}
+const	string	$const18	"  %g * %d = %g\n"		%read{49,49} %write{2147483647,-1}
+temp	float	$tmp21	%read{49,49} %write{48,48}
+temp	float	$tmp22	%read{48,48} %write{47,47}
+const	string	$const19	"  %d * %g = %g\n"		%read{52,52} %write{2147483647,-1}
+temp	float	$tmp23	%read{52,52} %write{51,51}
+temp	float	$tmp24	%read{51,51} %write{50,50}
+const	string	$const20	"  %g / %d = %g\n"		%read{55,55} %write{2147483647,-1}
+temp	float	$tmp25	%read{55,55} %write{54,54}
+temp	float	$tmp26	%read{54,54} %write{53,53}
+const	string	$const21	"  %d / %g = %g\n"		%read{58,58} %write{2147483647,-1}
+temp	float	$tmp27	%read{58,58} %write{57,57}
+temp	float	$tmp28	%read{57,57} %write{56,56}
+const	string	$const22	"triple:\n"		%read{60,60} %write{2147483647,-1}
+const	float	$const23	0.5		%read{63,63} %write{2147483647,-1}
+temp	color	$tmp29	%read{67,67} %write{66,66}
+temp	color	$tmp30	%read{69,69} %write{68,68}
+temp	color	$tmp31	%read{71,71} %write{70,70}
+temp	color	$tmp32	%read{73,73} %write{72,72}
+temp	color	$tmp33	%read{75,75} %write{74,74}
+temp	color	$tmp34	%read{77,77} %write{76,76}
+temp	color	$tmp35	%read{79,79} %write{78,78}
+temp	color	$tmp36	%read{81,81} %write{80,80}
+temp	color	$tmp37	%read{83,83} %write{82,82}
+temp	color	$tmp38	%read{85,85} %write{84,84}
+temp	color	$tmp39	%read{87,87} %write{86,86}
+temp	color	$tmp40	%read{89,89} %write{88,88}
+temp	color	$tmp41	%read{91,91} %write{90,90}
+temp	color	$tmp42	%read{93,93} %write{92,92}
+temp	color	$tmp43	%read{95,95} %write{94,94}
+temp	color	$tmp44	%read{99,99} %write{98,98}
+temp	color	$tmp45	%read{101,101} %write{100,100}
+temp	color	$tmp46	%read{103,103} %write{102,102}
+temp	color	$tmp47	%read{105,105} %write{104,104}
+temp	color	$tmp48	%read{107,107} %write{106,106}
+const	string	$const24	"int:\n"		%read{109,109} %write{2147483647,-1}
+const	int	$const25	7		%read{110,110} %write{2147483647,-1}
+const	string	$const26	"  %d + %d = %d\n"		%read{113,113} %write{2147483647,-1}
+temp	int	$tmp49	%read{113,113} %write{112,112}
+const	string	$const27	"  %d - %d = %d\n"		%read{115,115} %write{2147483647,-1}
+temp	int	$tmp50	%read{115,115} %write{114,114}
+const	string	$const28	"  %d * %d = %d\n"		%read{117,117} %write{2147483647,-1}
+temp	int	$tmp51	%read{117,117} %write{116,116}
+const	string	$const29	"  %d / %d = %d\n"		%read{119,119} %write{2147483647,-1}
+temp	int	$tmp52	%read{119,119} %write{118,118}
+const	string	$const30	"  %d %% %d = %d\n"		%read{121,121} %write{2147483647,-1}
+temp	int	$tmp53	%read{121,121} %write{120,120}
+const	string	$const31	"  - %d = %d\n"		%read{123,123} %write{2147483647,-1}
+temp	int	$tmp54	%read{123,123} %write{122,122}
+code ___main___
+# test.osl:6
+#         printf ("float:\n");
+	printf		$const1 	%filename{"test.osl"} %line{6} %argrw{"r"}
+# test.osl:7
+#         float a = 0.7;
+	assign		___296_a $const2 	%line{7} %argrw{"wr"}
+# test.osl:8
+#         float b = 0.2;
+	assign		___296_b $const3 	%line{8} %argrw{"wr"}
+# test.osl:9
+#         float z = 0;
+	assign		___296_z $const4 	%line{9} %argrw{"wr"}
+# test.osl:10
+#         printf ("  %g + %g = %g\n", a, b, a+b);
+	add		$tmp1 ___296_a ___296_b 	%line{10} %argrw{"wrr"}
+	printf		$const5 ___296_a ___296_b $tmp1 	%argrw{"rrrr"}
+# test.osl:11
+#         printf ("  %g - %g = %g\n", a, b, a-b);
+	sub		$tmp2 ___296_a ___296_b 	%line{11} %argrw{"wrr"}
+	printf		$const6 ___296_a ___296_b $tmp2 	%argrw{"rrrr"}
+# test.osl:12
+#         printf ("  %g * %g = %g\n", a, b, a*b);
+	mul		$tmp3 ___296_a ___296_b 	%line{12} %argrw{"wrr"}
+	printf		$const7 ___296_a ___296_b $tmp3 	%argrw{"rrrr"}
+# test.osl:13
+#         printf ("  %g / %g = %g\n", a, b, a/b);
+	div		$tmp4 ___296_a ___296_b 	%line{13} %argrw{"wrr"}
+	printf		$const8 ___296_a ___296_b $tmp4 	%argrw{"rrrr"}
+# test.osl:14
+#         printf ("  %g / %g = %g\n", a, z, a/z);
+	div		$tmp5 ___296_a ___296_z 	%line{14} %argrw{"wrr"}
+	printf		$const8 ___296_a ___296_z $tmp5 	%argrw{"rrrr"}
+# test.osl:15
+#         printf ("  - %g = %g\n", a, -a);
+	neg		$tmp6 ___296_a 	%line{15} %argrw{"wr"}
+	printf		$const9 ___296_a $tmp6 	%argrw{"rrr"}
+# test.osl:17
+#         printf (" varying: u=%g, v=%g\n", u, v);
+	printf		$const10 u v 	%line{17} %argrw{"rrr"}
+# test.osl:18
+#         a += u;
+	add		___296_a ___296_a u 	%line{18} %argrw{"wrr"}
+# test.osl:19
+#         printf ("  %g + %g = %g\n", a, b, a+b);
+	add		$tmp7 ___296_a ___296_b 	%line{19} %argrw{"wrr"}
+	printf		$const5 ___296_a ___296_b $tmp7 	%argrw{"rrrr"}
+# test.osl:20
+#         printf ("  %g - %g = %g\n", a, b, a-b);
+	sub		$tmp8 ___296_a ___296_b 	%line{20} %argrw{"wrr"}
+	printf		$const6 ___296_a ___296_b $tmp8 	%argrw{"rrrr"}
+# test.osl:21
+#         printf ("  %g * %g = %g\n", a, b, a*b);
+	mul		$tmp9 ___296_a ___296_b 	%line{21} %argrw{"wrr"}
+	printf		$const7 ___296_a ___296_b $tmp9 	%argrw{"rrrr"}
+# test.osl:22
+#         printf ("  %g / %g = %g\n", a, b, a/b);
+	div		$tmp10 ___296_a ___296_b 	%line{22} %argrw{"wrr"}
+	printf		$const8 ___296_a ___296_b $tmp10 	%argrw{"rrrr"}
+# test.osl:23
+#         printf ("  %g / %g = %g\n", a, z, a/z);
+	div		$tmp11 ___296_a ___296_z 	%line{23} %argrw{"wrr"}
+	printf		$const8 ___296_a ___296_z $tmp11 	%argrw{"rrrr"}
+# test.osl:24
+#         printf ("  - %g = %g\n", a, -a);
+	neg		$tmp12 ___296_a 	%line{24} %argrw{"wr"}
+	printf		$const9 ___296_a $tmp12 	%argrw{"rrr"}
+# test.osl:25
+#         printf ("\n");
+	printf		$const11 	%line{25} %argrw{"r"}
+# test.osl:30
+#         printf ("float/int:\n");
+	printf		$const12 	%line{30} %argrw{"r"}
+# test.osl:31
+#         float a = 0.7;
+	assign		___297_a $const2 	%line{31} %argrw{"wr"}
+# test.osl:32
+#         int b = 2;
+	assign		___297_b $const13 	%line{32} %argrw{"wr"}
+# test.osl:33
+#         float z = 0;
+	assign		___297_z $const4 	%line{33} %argrw{"wr"}
+# test.osl:34
+#         printf ("  %g + %d = %g\n", a, b, a+b);
+	assign		$tmp14 ___297_b 	%line{34} %argrw{"wr"}
+	add		$tmp13 ___297_a $tmp14 	%argrw{"wrr"}
+	printf		$const14 ___297_a ___297_b $tmp13 	%argrw{"rrrr"}
+# test.osl:35
+#         printf ("  %d + %g = %g\n", b, a, b+a);
+	assign		$tmp16 ___297_b 	%line{35} %argrw{"wr"}
+	add		$tmp15 $tmp16 ___297_a 	%argrw{"wrr"}
+	printf		$const15 ___297_b ___297_a $tmp15 	%argrw{"rrrr"}
+# test.osl:36
+#         printf ("  %g - %d = %g\n", a, b, a-b);
+	assign		$tmp18 ___297_b 	%line{36} %argrw{"wr"}
+	sub		$tmp17 ___297_a $tmp18 	%argrw{"wrr"}
+	printf		$const16 ___297_a ___297_b $tmp17 	%argrw{"rrrr"}
+# test.osl:37
+#         printf ("  %d - %g = %g\n", b, a, b-a);
+	assign		$tmp20 ___297_b 	%line{37} %argrw{"wr"}
+	sub		$tmp19 $tmp20 ___297_a 	%argrw{"wrr"}
+	printf		$const17 ___297_b ___297_a $tmp19 	%argrw{"rrrr"}
+# test.osl:38
+#         printf ("  %g * %d = %g\n", a, b, a*b);
+	assign		$tmp22 ___297_b 	%line{38} %argrw{"wr"}
+	mul		$tmp21 ___297_a $tmp22 	%argrw{"wrr"}
+	printf		$const18 ___297_a ___297_b $tmp21 	%argrw{"rrrr"}
+# test.osl:39
+#         printf ("  %d * %g = %g\n", b, a, b*a);
+	assign		$tmp24 ___297_b 	%line{39} %argrw{"wr"}
+	mul		$tmp23 $tmp24 ___297_a 	%argrw{"wrr"}
+	printf		$const19 ___297_b ___297_a $tmp23 	%argrw{"rrrr"}
+# test.osl:40
+#         printf ("  %g / %d = %g\n", a, b, a/b);
+	assign		$tmp26 ___297_b 	%line{40} %argrw{"wr"}
+	div		$tmp25 ___297_a $tmp26 	%argrw{"wrr"}
+	printf		$const20 ___297_a ___297_b $tmp25 	%argrw{"rrrr"}
+# test.osl:41
+#         printf ("  %d / %g = %g\n", b, a, b/a);
+	assign		$tmp28 ___297_b 	%line{41} %argrw{"wr"}
+	div		$tmp27 $tmp28 ___297_a 	%argrw{"wrr"}
+	printf		$const21 ___297_b ___297_a $tmp27 	%argrw{"rrrr"}
+# test.osl:42
+#         printf ("\n");
+	printf		$const11 	%line{42} %argrw{"r"}
+# test.osl:47
+#         printf ("triple:\n");
+	printf		$const22 	%line{47} %argrw{"r"}
+# test.osl:48
+#         color a = 0.7;
+	assign		___298_a $const2 	%line{48} %argrw{"wr"}
+# test.osl:49
+#         color b = 0.2;
+	assign		___298_b $const3 	%line{49} %argrw{"wr"}
+# test.osl:50
+#         float f = 0.5;
+	assign		___298_f $const23 	%line{50} %argrw{"wr"}
+# test.osl:51
+#         color z = 0;
+	assign		___298_z $const4 	%line{51} %argrw{"wr"}
+# test.osl:52
+#         float zf = 0;
+	assign		___298_zf $const4 	%line{52} %argrw{"wr"}
+# test.osl:53
+#         printf ("  %g + %g = %g\n", a, b, a+b);
+	add		$tmp29 ___298_a ___298_b 	%line{53} %argrw{"wrr"}
+	printf		$const5 ___298_a ___298_b $tmp29 	%argrw{"rrrr"}
+# test.osl:54
+#         printf ("  %g - %g = %g\n", a, b, a-b);
+	sub		$tmp30 ___298_a ___298_b 	%line{54} %argrw{"wrr"}
+	printf		$const6 ___298_a ___298_b $tmp30 	%argrw{"rrrr"}
+# test.osl:55
+#         printf ("  %g * %g = %g\n", a, b, a*b);
+	mul		$tmp31 ___298_a ___298_b 	%line{55} %argrw{"wrr"}
+	printf		$const7 ___298_a ___298_b $tmp31 	%argrw{"rrrr"}
+# test.osl:56
+#         printf ("  %g / %g = %g\n", a, b, a/b);
+	div		$tmp32 ___298_a ___298_b 	%line{56} %argrw{"wrr"}
+	printf		$const8 ___298_a ___298_b $tmp32 	%argrw{"rrrr"}
+# test.osl:57
+#         printf ("  %g / %g = %g\n", a, z, a/z);
+	div		$tmp33 ___298_a ___298_z 	%line{57} %argrw{"wrr"}
+	printf		$const8 ___298_a ___298_z $tmp33 	%argrw{"rrrr"}
+# test.osl:58
+#         printf ("  %g / %g = %g\n", a, zf, a/zf);
+	div		$tmp34 ___298_a ___298_zf 	%line{58} %argrw{"wrr"}
+	printf		$const8 ___298_a ___298_zf $tmp34 	%argrw{"rrrr"}
+# test.osl:59
+#         printf ("  - %g = %g\n", a, -a);
+	neg		$tmp35 ___298_a 	%line{59} %argrw{"wr"}
+	printf		$const9 ___298_a $tmp35 	%argrw{"rrr"}
+# test.osl:61
+#         printf ("  %g + %g = %g\n", a, f, a+f);
+	add		$tmp36 ___298_a ___298_f 	%line{61} %argrw{"wrr"}
+	printf		$const5 ___298_a ___298_f $tmp36 	%argrw{"rrrr"}
+# test.osl:62
+#         printf ("  %g - %g = %g\n", a, f, a-f);
+	sub		$tmp37 ___298_a ___298_f 	%line{62} %argrw{"wrr"}
+	printf		$const6 ___298_a ___298_f $tmp37 	%argrw{"rrrr"}
+# test.osl:63
+#         printf ("  %g * %g = %g\n", a, f, a*f);
+	mul		$tmp38 ___298_a ___298_f 	%line{63} %argrw{"wrr"}
+	printf		$const7 ___298_a ___298_f $tmp38 	%argrw{"rrrr"}
+# test.osl:64
+#         printf ("  %g / %g = %g\n", a, f, a/f);
+	div		$tmp39 ___298_a ___298_f 	%line{64} %argrw{"wrr"}
+	printf		$const8 ___298_a ___298_f $tmp39 	%argrw{"rrrr"}
+# test.osl:65
+#         printf ("  %g + %g = %g\n", f, a, f+a);
+	add		$tmp40 ___298_f ___298_a 	%line{65} %argrw{"wrr"}
+	printf		$const5 ___298_f ___298_a $tmp40 	%argrw{"rrrr"}
+# test.osl:66
+#         printf ("  %g - %g = %g\n", f, a, f-a);
+	sub		$tmp41 ___298_f ___298_a 	%line{66} %argrw{"wrr"}
+	printf		$const6 ___298_f ___298_a $tmp41 	%argrw{"rrrr"}
+# test.osl:67
+#         printf ("  %g * %g = %g\n", f, a, f*a);
+	mul		$tmp42 ___298_f ___298_a 	%line{67} %argrw{"wrr"}
+	printf		$const7 ___298_f ___298_a $tmp42 	%argrw{"rrrr"}
+# test.osl:68
+#         printf ("  %g / %g = %g\n", f, a, f/a);
+	div		$tmp43 ___298_f ___298_a 	%line{68} %argrw{"wrr"}
+	printf		$const8 ___298_f ___298_a $tmp43 	%argrw{"rrrr"}
+# test.osl:70
+#         printf (" varying: u=%g, v=%g\n", u, v);
+	printf		$const10 u v 	%line{70} %argrw{"rrr"}
+# test.osl:71
+#         a += u;
+	add		___298_a ___298_a u 	%line{71} %argrw{"wrr"}
+# test.osl:72
+#         printf ("  %g + %g = %g\n", a, b, a+b);
+	add		$tmp44 ___298_a ___298_b 	%line{72} %argrw{"wrr"}
+	printf		$const5 ___298_a ___298_b $tmp44 	%argrw{"rrrr"}
+# test.osl:73
+#         printf ("  %g - %g = %g\n", a, b, a-b);
+	sub		$tmp45 ___298_a ___298_b 	%line{73} %argrw{"wrr"}
+	printf		$const6 ___298_a ___298_b $tmp45 	%argrw{"rrrr"}
+# test.osl:74
+#         printf ("  %g * %g = %g\n", a, b, a*b);
+	mul		$tmp46 ___298_a ___298_b 	%line{74} %argrw{"wrr"}
+	printf		$const7 ___298_a ___298_b $tmp46 	%argrw{"rrrr"}
+# test.osl:75
+#         printf ("  %g / %g = %g\n", a, b, a/b);
+	div		$tmp47 ___298_a ___298_b 	%line{75} %argrw{"wrr"}
+	printf		$const8 ___298_a ___298_b $tmp47 	%argrw{"rrrr"}
+# test.osl:76
+#         printf ("  - %g = %g\n", a, -a);
+	neg		$tmp48 ___298_a 	%line{76} %argrw{"wr"}
+	printf		$const9 ___298_a $tmp48 	%argrw{"rrr"}
+# test.osl:77
+#         printf ("\n");
+	printf		$const11 	%line{77} %argrw{"r"}
+# test.osl:82
+#         printf ("int:\n");
+	printf		$const24 	%line{82} %argrw{"r"}
+# test.osl:83
+#         int a = 7;
+	assign		___299_a $const25 	%line{83} %argrw{"wr"}
+# test.osl:84
+#         int b = 2;
+	assign		___299_b $const13 	%line{84} %argrw{"wr"}
+# test.osl:85
+#         printf ("  %d + %d = %d\n", a, b, a+b);
+	add		$tmp49 ___299_a ___299_b 	%line{85} %argrw{"wrr"}
+	printf		$const26 ___299_a ___299_b $tmp49 	%argrw{"rrrr"}
+# test.osl:86
+#         printf ("  %d - %d = %d\n", a, b, a-b);
+	sub		$tmp50 ___299_a ___299_b 	%line{86} %argrw{"wrr"}
+	printf		$const27 ___299_a ___299_b $tmp50 	%argrw{"rrrr"}
+# test.osl:87
+#         printf ("  %d * %d = %d\n", a, b, a*b);
+	mul		$tmp51 ___299_a ___299_b 	%line{87} %argrw{"wrr"}
+	printf		$const28 ___299_a ___299_b $tmp51 	%argrw{"rrrr"}
+# test.osl:88
+#         printf ("  %d / %d = %d\n", a, b, a/b);
+	div		$tmp52 ___299_a ___299_b 	%line{88} %argrw{"wrr"}
+	printf		$const29 ___299_a ___299_b $tmp52 	%argrw{"rrrr"}
+# test.osl:89
+#         printf ("  %d %% %d = %d\n", a, b, a%b);
+	mod		$tmp53 ___299_a ___299_b 	%line{89} %argrw{"wrr"}
+	printf		$const30 ___299_a ___299_b $tmp53 	%argrw{"rrrr"}
+# test.osl:90
+#         printf ("  - %d = %d\n", a, -a);
+	neg		$tmp54 ___299_a 	%line{90} %argrw{"wr"}
+	printf		$const31 ___299_a $tmp54 	%argrw{"rrr"}
+# test.osl:92
+#         printf (" varying: u=%g, v=%g\n", u, v);
+	printf		$const10 u v 	%line{92} %argrw{"rrr"}
+# test.osl:103
+#         printf ("\n");
+	printf		$const11 	%line{103} %argrw{"r"}
+	end

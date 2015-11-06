@@ -1297,15 +1297,15 @@ ShadingSystemImpl::getattribute (ShaderGroup *group, string_view name,
         return true;
     }
     if (name == "num_entry_layers" && type.basetype == TypeDesc::INT) {
-        size_t n = 0;
-        for (size_t i = 0;  i < group->nlayers();  ++i)
+        int32_t n = 0;
+        for (int32_t i = 0;  i < group->nlayers();  ++i)
             n += group->layer(i)->entry_layer();
         *(int *)val = n;
         return true;
     }
     if (name == "entry_layers" && type.basetype == TypeDesc::STRING) {
         size_t n = 0;
-        for (size_t i = 0;  i < group->nlayers() && i < type.numelements();  ++i)
+        for (size_t i = 0;  i < (size_t)group->nlayers() && i < (size_t)type.numelements();  ++i)
             if (group->layer(i)->entry_layer())
                 ((ustring *)val)[n++] = (*group)[i]->layername();
         for (size_t i = n;  i < type.numelements();  ++i)
@@ -2096,7 +2096,7 @@ ShadingSystemImpl::ShaderGroupBegin (string_view groupname,
             }
             // Zero-pad if we parsed fewer values than we needed
             intvals.resize (type.numelements()*type.aggregate, 0);
-            ASSERT (type.numelements()*type.aggregate == int(intvals.size()));
+            ASSERT (type.numelements()*type.aggregate == uint32_t(intvals.size()));
             Parameter (paramname, type, &intvals[0], lockgeom);
         } else if (type.basetype == TypeDesc::FLOAT) {
             floatvals.clear ();
@@ -2116,7 +2116,7 @@ ShadingSystemImpl::ShaderGroupBegin (string_view groupname,
             }
             // Zero-pad if we parsed fewer values than we needed
             floatvals.resize (type.numelements()*type.aggregate, 0);
-            ASSERT (type.numelements()*type.aggregate == int(floatvals.size()));
+            ASSERT (type.numelements()*type.aggregate == uint32_t(floatvals.size()));
             Parameter (paramname, type, &floatvals[0], lockgeom);
         } else if (type.basetype == TypeDesc::STRING) {
             stringvals.clear ();
@@ -2146,7 +2146,7 @@ ShadingSystemImpl::ShaderGroupBegin (string_view groupname,
             }
             // Zero-pad if we parsed fewer values than we needed
             stringvals.resize (type.numelements()*type.aggregate, ustring());
-            ASSERT (type.numelements()*type.aggregate == int(stringvals.size()));
+            ASSERT (type.numelements()*type.aggregate == uint32_t(stringvals.size()));
             Parameter (paramname, type, &stringvals[0], lockgeom);
         }
 
